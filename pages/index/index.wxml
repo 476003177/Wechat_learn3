@@ -1,0 +1,14 @@
+<!-- 第一个区域：视频播放器 -->
+<video id="myVideo" controls=""></video>
+<!-- 第二个区域：弹幕区域 -->
+<view class="danmuArea">
+  <input type="text" placeholder="请输入弹幕"></input>
+  <button>发送弹幕</button>
+</view>
+<!-- 第二个区域：视频列表 -->
+<view class="videoList">
+  <view class="videoBar">
+    <image src="/images/play.png"></image>
+    <text>测试第一个</text>
+  </view>
+</view>
