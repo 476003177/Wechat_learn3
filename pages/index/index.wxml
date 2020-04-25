@@ -1,14 +1,16 @@
 <!-- 第一个区域：视频播放器 -->
-<video id="myVideo" controls=""></video>
+<!-- controls是否显示默认播放控件（播放/暂停按钮、播放进度、时间），默认为true -->
+<video id="myVideo" controls src="{{src}}"  enable-danmu danmu-btn></video>
 <!-- 第二个区域：弹幕区域 -->
 <view class="danmuArea">
-  <input type="text" placeholder="请输入弹幕"></input>
-  <button>发送弹幕</button>
+  <input type="text" placeholder="请输入弹幕" bindinput="getDanmu"></input>
+  <button bindtap="sendDanmu">发送弹幕</button>
 </view>
 <!-- 第二个区域：视频列表 -->
 <view class="videoList">
-  <view class="videoBar">
+  <!-- 循环添加 -->
+  <view class="videoBar" wx:for="{{list}}" wx:key="video{{index}}" data-url="{{item.videoUrl}}" bindtap="playVideo">
     <image src="/images/play.png"></image>
-    <text>测试第一个</text>
+    <text>{{item.title}}</text>
   </view>
 </view>
