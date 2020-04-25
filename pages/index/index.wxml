@@ -1,6 +1,6 @@
 <!-- 第一个区域：视频播放器 -->
 <!-- controls是否显示默认播放控件（播放/暂停按钮、播放进度、时间），默认为true -->
-<video id="myVideo" controls src="{{src}}"  enable-danmu danmu-btn></video>
+<video id="myVideo" controls src="{{src}}"  enable-danmu danmu-btn autoplay="true"></video>
 <!-- 第二个区域：弹幕区域 -->
 <view class="danmuArea">
   <input type="text" placeholder="请输入弹幕" bindinput="getDanmu"></input>
@@ -9,7 +9,8 @@
 <!-- 第二个区域：视频列表 -->
 <view class="videoList">
   <!-- 循环添加 -->
-  <view class="videoBar" wx:for="{{list}}" wx:key="video{{index}}" data-url="{{item.videoUrl}}" bindtap="playVideo">
+  <!-- 在组件上使用“wx:for”控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件。默认数组的当前项的下标变量名默认为“index”，数组当前项的变量名默认为“item” -->
+  <view class="videoBar" wx:for="{{list}}" wx:key="id" data-url="{{item.videoUrl}}" bindtap="playVideo">
     <image src="/images/play.png"></image>
     <text>{{item.title}}</text>
   </view>

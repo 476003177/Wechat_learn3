@@ -25,17 +25,17 @@ Page({
       {
         id: "456",
         title: "第二个视频",
-        videoUrl:"http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+        videoUrl:"http://www.w3school.com.cn//i/movie.mp4"
       },
       {
         id: "789",
         title: "第三个视频",
-        videoUrl:"http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+        videoUrl:"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
       },
       {
         id: "124",
         title: "第四个视频",
-        videoUrl:"http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+        videoUrl:"http://vjs.zencdn.net/v/oceans.mp4"
       }
     ],
     src:"",
@@ -62,22 +62,23 @@ Page({
     this.setData({
       src:e.currentTarget.dataset.url
     })
-    this.videoCtx.play()//播放新的视频
-
+    // this.videoCtx.play()//播放新的视频，视频组件已经设置了autoplay="true"，src修改后会自动播放，因此不需要该行
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // wx.createVideoContext(videoId)：创建并返回 video 上下文videoContext对象
+    // videoContext：通过 videoId 跟一个 video 组件绑定，通过它可以操作一个 video 组件。
+    this.videoCtx = wx.createVideoContext("myVideo")
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.videoCtx=wx.createVideoContext("myVideo")
+    
   },
 
   /**
